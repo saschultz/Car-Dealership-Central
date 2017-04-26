@@ -26,3 +26,9 @@ describe("#year") do
     expect(test_vehicle.year()).to(eq(2000))
   end
 end
+
+describe(".all") do
+  it('is empty at first') do
+    expect(Vehicle.all()).to(eq([]))
+  end
+end
