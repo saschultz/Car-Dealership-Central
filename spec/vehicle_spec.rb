@@ -41,3 +41,11 @@ describe("#save") do
     expect(Vehicle.all()).to(eq([test_vehicle]))
   end
 end
+
+describe(".clear") do
+  it('empties out all of the saved vehicles') do
+    Vehicle.new("Toyota", "Prius", 2000).save()
+    Vehicle.clear()
+    expect(Vehicle.all()).to(eq([]))
+  end
+end
