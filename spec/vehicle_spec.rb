@@ -2,9 +2,10 @@ require('rspec')
 require('vehicle')
 
 describe('Vehicle') do
-  # before() do
-  #   Vehicle.clear()
+  before() do
+  Vehicle.clear()
   end
+end
 
 describe("#make") do
   it('returns the make of the vehicle') do
@@ -30,5 +31,13 @@ end
 describe(".all") do
   it('is empty at first') do
     expect(Vehicle.all()).to(eq([]))
+  end
+end
+
+describe("#save") do
+  it('adds a vehicle to the array of vehicles') do
+    test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+    test_vehicle.save()
+    expect(Vehicle.all()).to(eq([test_vehicle]))
   end
 end
