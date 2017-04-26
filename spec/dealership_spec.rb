@@ -23,4 +23,11 @@ describe(Dealership) do
       expect(test_dealership.cars).to(eq([]))
     end
   end
+
+  describe(".all") do
+    it("is empty at first") do
+      expect(Dealership.all()).to(eq([]))
+    end
+  end
+
 end
