@@ -31,4 +31,14 @@ class Vehicle
   define_singleton_method(:clear) do
     @@vehicles = []
   end
+
+  define_method(:age) do
+    current_year = Time.new().year()
+    current_year.-(@year)
+  end
+
+  define_method(:worth_buying) do
+    american_cars = ["Chrysler", "Ford", "GM", "Tesla"]
+    american_cars.include?(@make) && (self.age() <= (15))
+  end
 end
