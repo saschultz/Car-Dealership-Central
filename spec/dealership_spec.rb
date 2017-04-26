@@ -2,9 +2,9 @@ require('rspec')
 require('dealership')
 
 describe(Dealership) do
-  # before() do
-  #   Dealership.clear()
-  # end
+  before() do
+    Dealership.clear()
+  end
 
   describe('#name') do
     it('returns the name of the dealership') do
@@ -27,6 +27,12 @@ describe(Dealership) do
     end
   end
 
+  describe(".all") do
+    it("is empty at first") do
+      expect(Dealership.all()).to(eq([]))
+    end
+  end
+
   describe('#save') do
     it('adds a new dealership to the array of dealerships') do
       test_dealership = Dealership.new("Bob's Used Cars")
@@ -35,17 +41,11 @@ describe(Dealership) do
     end
   end
 
-  # describe(".all") do
-  #   it("is empty at first") do
-  #     expect(Dealership.all()).to(eq([]))
-  #   end
-  # end
-  #
-  # describe(".clear")do
-  #   it("empties out all of the saved dealerships") do
-  #     Dealership.new("Bob's Used Cars").save()
-  #     Dealership.clear()
-  #     expect(Dealership.all()).to(eq([]))
-  #   end
-  # end
+  describe(".clear")do
+    it("empties out all of the saved dealerships") do
+      Dealership.new("Bob's Used Cars").save()
+      Dealership.clear()
+      expect(Dealership.all()).to(eq([]))
+    end
+  end
 end
